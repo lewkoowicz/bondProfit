@@ -1,11 +1,11 @@
-import './App.css'
+import BondInvestmentForm from './BondInvestmentForm';
 
 function App() {
-
-  return (
-      <button className='btn'>Click me</button>
-  )
-
+    return (
+        <div className="App">
+            <BondInvestmentForm />
+        </div>
+    );
 }
 
-export default App
+export default App;
