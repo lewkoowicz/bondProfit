@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lewkowicz</groupId>
-    <artifactId>savings</artifactId>
+    <artifactId>savings-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>savings</name>
     <description>savings</description>
