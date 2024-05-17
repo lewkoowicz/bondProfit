@@ -1,4 +1,4 @@
-import BondInvestmentForm from './BondInvestmentForm';
+import BondInvestmentForm from './components/BondInvestmentForm.tsx';
 
 function App() {
     return (

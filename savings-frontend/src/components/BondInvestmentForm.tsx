@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createBond, BondResponse } from './api/bondsAPI.ts';
+import { createBond, BondResponse } from '../api/bondsAPI.ts';
 
 const BondInvestmentForm: React.FC = () => {
     const [monthlyInvestment, setMonthlyInvestment] = useState('');
