@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3ed9fd-f564-455f-9d80-2ab6ee8346c3" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/savings-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/savings-frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savings-frontend/src/BondInvestmentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/savings-frontend/src/components/BondInvestmentForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings-api/src/main/java/com/lewkowicz/savings/service/BondService.java" beforeDir="false" afterPath="$PROJECT_DIR$/savings-api/src/main/java/com/lewkowicz/savings/service/BondService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings-frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/savings-frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings-frontend/src/api/bondsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/savings-frontend/src/api/bondsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings-frontend/src/components/BondInvestmentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/savings-frontend/src/components/BondInvestmentForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings-frontend/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/savings-frontend/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +108,7 @@
       <updated>1715928760626</updated>
       <workItem from="1715928761617" duration="396000" />
       <workItem from="1715929247841" duration="1228000" />
-      <workItem from="1715931250231" duration="4519000" />
+      <workItem from="1715931250231" duration="10732000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -121,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715935886423</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=".">
+      <option name="closed" value="true" />
+      <created>1715936404754</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715936404754</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -26,7 +26,6 @@ public class BondService {
             LocalDate purchaseDate = LocalDate.now().plusMonths(i);
             LocalDate maturityDate = purchaseDate.plusYears(BOND_LENGTH_YEARS);
 
-            // Calculate future value with annual compounding
             double futureValue = monthlyInvestment * Math.pow(1 + ANNUAL_INTEREST_RATE, BOND_LENGTH_YEARS);
             double profit = futureValue - monthlyInvestment;
             double tax = profit * TAX_RATE;

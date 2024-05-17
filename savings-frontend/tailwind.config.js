@@ -1,4 +1,5 @@
 import daisyui from 'daisyui';
+import typography from 'tailwindcss'
 
 export default {
   content: [
@@ -7,7 +8,7 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [daisyui],
+  plugins: [typography, daisyui],
   daisyui: {
     themes: ["light", "dark"],
   },
