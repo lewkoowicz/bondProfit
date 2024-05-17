@@ -3,6 +3,7 @@ const BASE_URL = 'http://localhost:8080';
 interface BondData {
     monthlyInvestment: string;
     investmentYears: string;
+    reinvest: boolean;
 }
 
 export interface BondResponse {

@@ -4,6 +4,7 @@ import { createBond, BondResponse } from '../api/bondsAPI.ts';
 const BondInvestmentForm: React.FC = () => {
     const [monthlyInvestment, setMonthlyInvestment] = useState('');
     const [investmentYears, setInvestmentYears] = useState('');
+    const [reinvest, setReinvest] = useState(false);
     const [results, setResults] = useState<BondResponse | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [theme, setTheme] = useState('dark');
@@ -14,7 +15,7 @@ const BondInvestmentForm: React.FC = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await createBond({ monthlyInvestment, investmentYears });
+            const response = await createBond({ monthlyInvestment, investmentYears, reinvest });
             setResults(response);
             setError(null);
         } catch (err) {
@@ -34,7 +35,8 @@ const BondInvestmentForm: React.FC = () => {
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
-                <input type="checkbox" value="synthwave" className="toggle theme-controller" onClick={handleThemeChange}/>
+                <input type="checkbox" value="synthwave" className="toggle theme-controller"
+                       onClick={handleThemeChange}/>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="5"/>
@@ -67,6 +69,16 @@ const BondInvestmentForm: React.FC = () => {
                     onChange={(e) => setInvestmentYears(e.target.value)}
                 />
             </div>
+            <div className="form-control mb-5 text-left">
+                <div className="label">
+                    <span className="label-text font-semibold">Reinvest profits?</span>
+                </div>
+                <label className="swap swap-rotate flex justify-start items-center">
+                    <input type="checkbox" checked={reinvest} onChange={(e) => setReinvest(e.target.checked)}/>
+                    <div className="swap-on">YES</div>
+                    <div className="swap-off">NO</div>
+                </label>
+            </div>
             <button className="btn btn-primary mt-4" onClick={handleSubmit}>Calculate</button>
             {error && <p className="text-error">{error}</p>}
             {results && (
@@ -74,7 +86,7 @@ const BondInvestmentForm: React.FC = () => {
                     <h2 className="text-2xl font-bold mb-3">Results</h2>
                     <div className="stats shadow">
                         <div className="stat">
-                            <div className="stat-title">Total Savings</div>
+                        <div className="stat-title">Total Savings</div>
                             <div className="stat-value">{results.totalSavings}</div>
                         </div>
                         <div className="stat">

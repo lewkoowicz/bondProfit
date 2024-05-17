@@ -9,5 +9,6 @@ public class BondRequest {
 
     private double monthlyInvestment;
     private int investmentYears;
+    private boolean reinvest;
 
 }

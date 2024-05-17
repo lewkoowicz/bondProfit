@@ -17,7 +17,7 @@ public class BondService {
     private static final int BOND_LENGTH_YEARS = 3;
     private static final double TAX_RATE = 19.0 / 100;
 
-    public BondResponse createBonds(double monthlyInvestment, int investmentYears) {
+    public BondResponse createBonds(double monthlyInvestment, int investmentYears, boolean reinvest) {
         List<Bond> bonds = new ArrayList<>();
         double totalSavings = 0;
         LocalDate endDate = LocalDate.now().plusYears(investmentYears);
@@ -32,13 +32,18 @@ public class BondService {
             double netProfit = profit - tax;
 
             bonds.add(new Bond(purchaseDate, maturityDate, netProfit, false));
-            totalSavings += futureValue - tax;
         }
+
+        if (reinvest) {
+            reinvestMaturedBonds(bonds, endDate);
+        }
+
+        totalSavings = bonds.stream().mapToDouble(bond -> bond.getNetProfit() + monthlyInvestment).sum();
+
+        DecimalFormat df = new DecimalFormat("#,###.00");
 
         double totalSavingsWithoutBonds = monthlyInvestment * 12 * investmentYears;
         double difference = totalSavings - totalSavingsWithoutBonds;
-
-        DecimalFormat df = new DecimalFormat("#,###.00");
 
         BondResponse response = new BondResponse();
         response.setBondDetails(bonds.stream()
@@ -53,15 +58,22 @@ public class BondService {
     }
 
     public void reinvestMaturedBonds(List<Bond> bonds, LocalDate endDate) {
+        double leftover = 0;
+
         for (Bond bond : bonds) {
             if (bond.getMaturityDate().isBefore(endDate)) {
-                double futureValue = bond.getNetProfit() * Math.pow(1 + ANNUAL_INTEREST_RATE, BOND_LENGTH_YEARS);
-                double profit = futureValue - bond.getNetProfit();
+                double totalAvailable = bond.getNetProfit() + leftover;
+                int numberOfBonds = (int) (totalAvailable / 100);
+                double investedAmount = numberOfBonds * 100;
+                leftover = totalAvailable - investedAmount;
+
+                double futureValue = investedAmount * Math.pow(1 + ANNUAL_INTEREST_RATE, BOND_LENGTH_YEARS);
+                double profit = futureValue - investedAmount;
                 double tax = profit * TAX_RATE;
                 double netProfit = profit - tax;
 
                 bond.setMaturityDate(bond.getMaturityDate().plusYears(BOND_LENGTH_YEARS));
-                bond.setNetProfit(netProfit);
+                bond.setNetProfit(bond.getNetProfit() + netProfit);
                 bond.setReinvested(true);
             }
         }

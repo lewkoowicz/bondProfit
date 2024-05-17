@@ -20,7 +20,7 @@ public class BondController {
 
     @PostMapping("/create")
     public ResponseEntity<BondResponse> createBonds(@RequestBody BondRequest bondRequest) {
-        BondResponse response = bondService.createBonds(bondRequest.getMonthlyInvestment(), bondRequest.getInvestmentYears());
+        BondResponse response = bondService.createBonds(bondRequest.getMonthlyInvestment(), bondRequest.getInvestmentYears(), bondRequest.isReinvest());
         return ResponseEntity.ok(response);
     }
 
